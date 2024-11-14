@@ -1,5 +1,6 @@
 package com.example.schedulemanagementv2.service;
 
+import com.example.schedulemanagementv2.dto.LoginResponseDto;
 import com.example.schedulemanagementv2.dto.SignUpResponseDto;
 import com.example.schedulemanagementv2.dto.UserResponseDto;
 import com.example.schedulemanagementv2.entity.User;
@@ -17,6 +18,13 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+
+    //로그인
+    public LoginResponseDto login(String email, String password) {
+        Long index = userRepository.findIdByEmailAndPasswordOrElseThrow(email, password);
+
+        return new LoginResponseDto(index);
+    }
 
     //유저 생성
     public SignUpResponseDto signUp(String username, String email, String password){
