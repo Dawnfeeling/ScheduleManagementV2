@@ -1,5 +1,6 @@
 package com.example.schedulemanagementv2.service;
 
+import com.example.schedulemanagementv2.config.PasswordEncoder;
 import com.example.schedulemanagementv2.dto.LoginResponseDto;
 import com.example.schedulemanagementv2.dto.SignUpResponseDto;
 import com.example.schedulemanagementv2.dto.UserResponseDto;
@@ -18,18 +19,27 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     //로그인
     public LoginResponseDto login(String email, String password) {
-        Long index = userRepository.findIdByEmailAndPasswordOrElseThrow(email, password);
 
-        return new LoginResponseDto(index);
+        Long index = userRepository.findIdByEmail(email);
+
+        Optional<User> optionalUser = userRepository.findById(index);
+
+        //비밀번호 검증
+        if(passwordEncoder.matches(password, optionalUser.get().getPassword())) {
+            return new LoginResponseDto(index);
+        }else{
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Wrong password");
+        }
     }
 
     //유저 생성
     public SignUpResponseDto signUp(String username, String email, String password){
 
-        User user = new User(username, email, password);
+        User user = new User(username, email, passwordEncoder.encode(password));
 
         User savedUser = userRepository.save(user);
 
@@ -56,11 +66,11 @@ public class UserService {
 
         User findUser = userRepository.findByIdOrElseThrow(id);
 
-        if (!findUser.getPassword().equals(oldPassword)) {
+        if (!passwordEncoder.matches(oldPassword, findUser.getPassword())) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다.");
         }
 
-        findUser.updatePassword(newPassword);
+        findUser.updatePassword(passwordEncoder.encode(newPassword));
     }
 
     public void delete(Long id){
