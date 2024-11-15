@@ -43,7 +43,7 @@ public class UserService {
 
         User savedUser = userRepository.save(user);
 
-        return new SignUpResponseDto(savedUser.getId(), savedUser.getUsername(), savedUser.getEmail());
+        return new SignUpResponseDto(savedUser.getId(), savedUser.getUsername(), savedUser.getEmail(), savedUser.getCreatedAt());
     }
 
     //유저 조회
@@ -57,7 +57,7 @@ public class UserService {
 
         User findUser = optionalUser.get();
 
-        return new UserResponseDto(findUser.getUsername(), findUser.getEmail());
+        return new UserResponseDto(findUser.getUsername(), findUser.getEmail(), findUser.getCreatedAt(), findUser.getUpdatedAt());
     }
 
     //유저 비밀번호 수정
