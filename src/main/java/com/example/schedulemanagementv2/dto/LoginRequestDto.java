@@ -1,16 +1,18 @@
 package com.example.schedulemanagementv2.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NonNull;
 
 @Getter
 @AllArgsConstructor
 public class LoginRequestDto {
 
-    @NonNull
+    @NotNull
+    @Email
     private final String email;
 
-    @NonNull
+    @NotNull
     private final String password;
 }
