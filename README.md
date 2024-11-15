@@ -1,7 +1,7 @@
 ## 개요
 Spring으로 CRUD및 인증/인가를 구현한 ScheduleManagementV2
 
-**API 명세서, ERD, SQL**
+**API 명세서, ERD**
 
 https://abalone-flat-811.notion.site/Schedule-management-Project-V2-13f1531f17908040bacbfc0b528d93a3?pvs=4
 
