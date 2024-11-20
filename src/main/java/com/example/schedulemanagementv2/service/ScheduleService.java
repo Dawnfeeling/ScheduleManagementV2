@@ -1,6 +1,6 @@
 package com.example.schedulemanagementv2.service;
 
-import com.example.schedulemanagementv2.dto.ScheduleResponseDto;
+import com.example.schedulemanagementv2.dto.schedule.ScheduleResponseDto;
 import com.example.schedulemanagementv2.entity.Schedule;
 import com.example.schedulemanagementv2.entity.User;
 import com.example.schedulemanagementv2.repository.ScheduleRepository;

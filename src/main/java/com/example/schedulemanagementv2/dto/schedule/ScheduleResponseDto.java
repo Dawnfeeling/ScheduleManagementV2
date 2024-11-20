@@ -1,4 +1,4 @@
-package com.example.schedulemanagementv2.dto;
+package com.example.schedulemanagementv2.dto.schedule;
 
 import com.example.schedulemanagementv2.entity.Schedule;
 import lombok.Getter;

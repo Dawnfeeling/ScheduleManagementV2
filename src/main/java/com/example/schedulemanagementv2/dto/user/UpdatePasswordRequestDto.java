@@ -1,4 +1,4 @@
-package com.example.schedulemanagementv2.dto;
+package com.example.schedulemanagementv2.dto.user;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

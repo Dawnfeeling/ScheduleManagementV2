@@ -1,12 +1,12 @@
 package com.example.schedulemanagementv2.controller;
 
 import com.example.schedulemanagementv2.common.Const;
-import com.example.schedulemanagementv2.dto.LoginRequestDto;
-import com.example.schedulemanagementv2.dto.LoginResponseDto;
-import com.example.schedulemanagementv2.dto.SignUpRequestDto;
-import com.example.schedulemanagementv2.dto.SignUpResponseDto;
-import com.example.schedulemanagementv2.dto.UpdatePasswordRequestDto;
-import com.example.schedulemanagementv2.dto.UserResponseDto;
+import com.example.schedulemanagementv2.dto.user.LoginRequestDto;
+import com.example.schedulemanagementv2.dto.user.LoginResponseDto;
+import com.example.schedulemanagementv2.dto.user.SignUpRequestDto;
+import com.example.schedulemanagementv2.dto.user.SignUpResponseDto;
+import com.example.schedulemanagementv2.dto.user.UpdatePasswordRequestDto;
+import com.example.schedulemanagementv2.dto.user.UserResponseDto;
 import com.example.schedulemanagementv2.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

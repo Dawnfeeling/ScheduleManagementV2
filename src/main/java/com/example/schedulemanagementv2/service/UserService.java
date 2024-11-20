@@ -1,9 +1,9 @@
 package com.example.schedulemanagementv2.service;
 
 import com.example.schedulemanagementv2.config.PasswordEncoder;
-import com.example.schedulemanagementv2.dto.LoginResponseDto;
-import com.example.schedulemanagementv2.dto.SignUpResponseDto;
-import com.example.schedulemanagementv2.dto.UserResponseDto;
+import com.example.schedulemanagementv2.dto.user.LoginResponseDto;
+import com.example.schedulemanagementv2.dto.user.SignUpResponseDto;
+import com.example.schedulemanagementv2.dto.user.UserResponseDto;
 import com.example.schedulemanagementv2.entity.User;
 import com.example.schedulemanagementv2.repository.UserRepository;
 import jakarta.transaction.Transactional;
